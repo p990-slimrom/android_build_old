@@ -1,5 +1,11 @@
+#     _             _     _ ____            _     _
+#    / \   _ __ ___| |__ (_)  _ \ _ __ ___ (_) __| |
+#   / _ \ | '__/ __| '_ \| | | | | '__/ _ \| |/ _` |
+#  / ___ \| | | (__| | | | | |_| | | | (_) | | (_| |
+# /_/   \_\_|  \___|_| |_|_|____/|_|  \___/|_|\__,_|
 #
 # Copyright (C) 2006 The Android Open Source Project
+# Copyright (C) 2014 Łukasz "JustArchi" Domeradzki
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -46,10 +52,10 @@ $(combo_target)HAVE_STRLCPY := 0
 $(combo_target)HAVE_STRLCAT := 0
 $(combo_target)HAVE_KERNEL_MODULES := 0
 
-$(combo_target)GLOBAL_CFLAGS := -fno-exceptions -Wno-multichar
+$(combo_target)GLOBAL_CFLAGS := -O3 -DNDEBUG -funsafe-loop-optimizations -fivopts -ftree-loop-im -ftree-loop-ivcanon -ffunction-sections -fdata-sections -funswitch-loops -frename-registers -frerun-cse-after-loop -fomit-frame-pointer -fgcse-sm -fgcse-las -fweb -ftracer -Wno-error=unused-parameter -Wno-error=unused-but-set-variable -Wno-error=maybe-uninitialized -fno-exceptions -Wno-multichar
 ifeq ($(TARGET_USE_03),true)
-$(combo_target)RELEASE_CFLAGS := -O3 -g -fno-strict-aliasing
-$(combo_target)GLOBAL_LDFLAGS := -Wl,-O3
+$(combo_target)RELEASE_CFLAGS := -O3 -DNDEBUG -g -fno-strict-aliasing -funsafe-loop-optimizations -fivopts -ftree-loop-im -ftree-loop-ivcanon -ffunction-sections -fdata-sections -funswitch-loops -frename-registers -frerun-cse-after-loop-fomit-frame-pointer -fgcse-sm -fgcse-las -fweb -ftracer -Wno-error=unused-parameter -Wno-error=unused-but-set-variable -Wno-error=maybe-uninitialized
+$(combo_target)GLOBAL_LDFLAGS := -Wl,-O3 -Wl,--as-needed -Wl,--relax -Wl,--sort-common -Wl,--gc-sections
 else
 $(combo_target)RELEASE_CFLAGS := -Os -g -fno-strict-aliasing
 $(combo_target)GLOBAL_LDFLAGS :=
