@@ -68,13 +68,13 @@ PRODUCT_PACKAGES += \
     toolbox
 
 # SELinux packages
-PRODUCT_PACKAGES += \
-    auditd \
-    sepolicy \
-    file_contexts \
-    seapp_contexts \
-    property_contexts \
-    mac_permissions.xml
+#PRODUCT_PACKAGES += \
+#    auditd \
+#    sepolicy \
+#    file_contexts \
+#    seapp_contexts \
+#    property_contexts \
+#    mac_permissions.xml
 
 
 PRODUCT_COPY_FILES += \
