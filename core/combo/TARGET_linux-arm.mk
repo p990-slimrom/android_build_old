@@ -137,7 +137,8 @@ else
     TARGET_thumb_CFLAGS :=  -mthumb \
                             -Os \
                             -fomit-frame-pointer \
-                            -fno-strict-aliasing
+                            -fno-strict-aliasing \
+                            -Wno-unused-parameter
 endif
 
 # Release CFLAGS. Usually you don't need to change anything here
