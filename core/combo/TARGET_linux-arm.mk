@@ -138,7 +138,9 @@ else
                             -Os \
                             -fomit-frame-pointer \
                             -fno-strict-aliasing \
-                            -Wno-unused-parameter
+                            -Wno-unused-parameter \
+                            -Wno-unused-value \
+                            -Wno-unused-function
 endif
 
 # Release CFLAGS. Usually you don't need to change anything here
